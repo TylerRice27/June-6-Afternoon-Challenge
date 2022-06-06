@@ -9,6 +9,7 @@ export class HousesController extends BaseController {
         super('api/houses')
         this.router
             .get('', this.getAllHouses)
+            .post('', this.createHouse)
     }
 
 
@@ -21,4 +22,15 @@ export class HousesController extends BaseController {
         }
 
     }
+
+    async createHouse(req, res, next) {
+        try {
+            let house = await housesService.createHouse(req.body)
+            return res.send(house)
+        } catch (error) {
+            next(error)
+
+        }
+    }
+
 }

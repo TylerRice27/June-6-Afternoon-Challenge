@@ -14,6 +14,11 @@ class HousesService {
         return fakeHouses.houses
     }
 
+    createHouse(houseData) {
+        fakeHouses.houses.push(houseData)
+        return houseData
+    }
+
 
 }
 
